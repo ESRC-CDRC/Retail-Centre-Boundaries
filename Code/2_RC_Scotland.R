@@ -46,10 +46,8 @@ sf::sf_use_s2(FALSE)
 #          |--Interim
 #          |--Final
 
-# wd <- "<FILE PATH TO WORKING DIRECTORY>"
-
-# wd <- "/Users/jake_mac02/Dropbox/Research/Retail Geography/Retail"
-wd <- "/home/jacobmac/Dropbox/Research/Retail Geography/Retail"
+wd <- "<FILE PATH TO WORKING DIRECTORY>" 
+# e.g. "/home/---/Retail Boundaries Project"
 
 # Functions.R includes a set of functions related to h3 geometry tract connectivity,
 #   infilling and spatial operations.
