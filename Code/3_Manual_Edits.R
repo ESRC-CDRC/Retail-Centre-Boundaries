@@ -47,8 +47,7 @@ sf::sf_use_s2(FALSE)
 #          |--Interim
 #          |--Final
 
-wd <- "<FILE PATH TO WORKING DIRECTORY>" 
-# e.g. "/home/---/Retail Boundaries Project"
+# wd <- "<FILE PATH TO WORKING DIRECTORY>"
 
 # Functions.R includes a set of functions related to h3 geometry tract connectivity,
 #   infilling and spatial operations.
@@ -242,133 +241,89 @@ H3_UK <- H3_UK[!(H3_UK$h3_address %in% c("8b195da6bb53fff", "8b195da6bb51fff", "
 # st_write(t2, dsn = paste0(wd, "/Exports/England_Wales/RC_Merge.gpkg"), delete_layer = TRUE, driver = "gpkg")
 
 mergers <- list()
-# MERGE: Liverpool Region
-#    "RC_Z9996999", "RC_Z9999437", "RC_Z9995948", "RC_Z9991131" (Crosby)
 mergers[[1]] <- c("8b1951028516fff", "8b1951028510fff", "8b1951028511fff", "8b195102851cfff", "8b19510285a5fff", 
   "8b1951028512fff", "8b1951028513fff")
 
-#    "RC_EW_5554", "RC_EW_5555", "RC_EW_5634" (Orrell Park)
 mergers[[2]] <- c("8b19510749a3fff", "8b195115a292fff", "8b195115a293fff")
 
-#    "RC_EW_5532", "RC_EW_5533" (County Road)
 mergers[[3]] <- c("8b1951070913fff", "8b1951070911fff")
 
-#    "RC_EW_5404", "RC_EW_5402" (Smithdown Road)
 mergers[[4]] <- c("8b19510442e1fff", "8b19510442e5fff")
 
-#    "RC_EW_5415", "RC_EW_5412" (Allerton Road)
 mergers[[5]] <- c("8b1951045c18fff", "8b1951045c1dfff", "8b1951045c0afff", "8b1951045c0bfff", "8b1951045c09fff")
 
-#    "RC_EW_5467", "RC_EW_11868" (Church Road)
 mergers[[6]] <- c("8b1951058d0cfff", "8b1951058d2bfff")
 
-#    "RC_EW_5604", "RC_EW_5596" (Station Road)
 mergers[[7]] <- c("8b195111d909fff", "8b195111d956fff", "8b195111d952fff", "8b195111d950fff", "8b195111d953fff")
 
-#    "RC_EW_12148", "RC_EW_5461" (Albert Dock)
 mergers[[8]] <- c("8b19510558e0fff", "8b19510558e1fff", "8b1951055852fff", "8b1951055850fff")
 
-#    "RC_EW_5427", "RC_EW_5426", "RC_EW_5392" (Lodge Land)
 mergers[[9]] <- c("8b1951046b5dfff", "8b1951046b4efff", "8b1951046a61fff", "8b1951046a6efff", "8b1951046a6cfff", 
   "8b1951046a68fff")
 
-#    "RC_EW_5589", "RC_EW_5595" ( )
 mergers[[10]] <- c("8b1951101526fff", "8b1951101c99fff", "8b1951101c8afff", "8b1951101c9dfff")
 
-#    "RC_EW_5611", "RC_EW_5610" (Southport)
 mergers[[11]] <- c("8b195112335cfff", "8b1951123351fff")
 
-
-# MERGE: City Centres and High Streets
-#    "RC_EW_5668", "RC_EW_5662" (Chester)
 mergers[[12]] <- c("8b195123429bfff", "8b1951234298fff", "8b195123429efff", "8b1951234291fff", "8b1951234290fff", 
   "8b1951234296fff")
 
-#    "RC_EW_1299", "RC_EW_1298", "RC_EW_1301", "RC_EW_1303"  (Bury)
 mergers[[13]] <- c("8b194248b608fff", "8b194248b60efff", "8b194248b6e2fff", "8b194248b6f5fff", "8b194248b6d3fff", 
   "8b194248b6d0fff", "8b194248b6d4fff")
 
-#    "RC_EW_1983", "RC_EW_1996", "RC_EW_2018"  (Leeds)
 mergers[[14]] <- c("8b1942c59d2efff", "8b1942c59d23fff", "8b1942c5d780fff", "8b1942c5d781fff", "8b1942c5d78cfff", 
   "8b1942c5d78dfff", "8b1942c5d7abfff", "8b1942c5d7a9fff", "8b1942c5d7a8fff", "8b1942c5d7acfff", "8b1942c5d713fff")
 
-#    "RC_EW_7027", "RC_EW_7029"  (Bristol)
 mergers[[15]] <- c("8b19583922a1fff", "8b19583922acfff", "8b1958392213fff", "8b1958392211fff", "8b195839221efff", 
   "8b195839221cfff", "8b1958392203fff", "8b1958392201fff", "8b19583922a9fff", "8b195839221afff", "8b1958392218fff", 
   "8b19583922f4fff", "8b1958392219fff")
 
-
-# MERGE: Others based on feedback: 
-#    "RC_EW_3289", "RC_EW_3277" 
 mergers[[16]] <- c("8b194a722b4bfff", "8b194a722b48fff")
 
-#    "RC_EW_7543", "RC_EW_7542" 
 mergers[[17]] <- c("8b1959024113fff", "8b19590241adfff", "8b1959024021fff", "8b195902402cfff", "8b1959024156fff", 
   "8b1959024152fff", "8b1959024025fff")
 
-#    "RC_EW_10076", "RC_EW_10075" 
 mergers[[18]] <- c("8b195d09ad83fff", "8b195d09ad8dfff", "8b195d09ac36fff", "8b195d09ac33fff", "8b195d09ac28fff")
 
-#    "RC_EW_10477", "RC_EW_10452" 
 mergers[[19]] <- c("8b195d5592d3fff", "8b195d5592d0fff", "8b195d5592d6fff", "8b195d55928bfff")
 
-#    "RC_EW_7037", "RC_EW_7036" 
 mergers[[20]] <- c("8b19583926e1fff", "8b1958392652fff", "8b19583926eefff")
 
-#    "RC_EW_88", "RC_EW_90" 
 mergers[[21]] <- c("8b18746ea369fff", "8b18746ebcb4fff", "8b18746ea36bfff", "8b18746ebcb6fff")
 
-#    "RC_EW_9079", "RC_EW_9073" 
 mergers[[22]] <- c("8b195c341c9cfff", "8b195c341c83fff")
 
-#    "RC_EW_8006", "RC_EW_8005" 
 mergers[[23]] <- c("8b195a118658fff", "8b195a11874efff", "8b195a118748fff")
 
-#    "RC_EW_6700", "RC_EW_6699" 
 mergers[[24]] <- c("8b19550d6014fff", "8b19550d6016fff")
 
-#    "RC_EW_6447", "RC_EW_12003" (Levenshulme retail centre in Manchester)
 mergers[[25]] <- c("8b1951b62a8bfff", "8b1951b62a89fff")
 
-#    "RC_EW_6180", "RC_EW_6186", "RC_EW_6185" (St. Helen's padding)
 mergers[[26]] <- c("8b1951ab0899fff", "8b1951ab088afff", "8b1951ab089dfff", "8b1951ab088efff", "8b1951ab08d4fff", 
   "8b1951ab08f2fff")
 
-#    "RC_EW_6125", "RC_EW_6126" (St. Helen's padding)
 mergers[[27]] <- c("8b1951a8a242fff", "8b1951a8a25cfff", "8b1951a8a258fff", "8b1951a8a25bfff", "8b1951a8b5b5fff", 
   "8b1951a8b5b4fff")
 
-#    "RC_Z9999451", "RC_Z9998476" (Yates)
 mergers[[28]] <- c("8b195805d251fff")
 
-#    "RC_Z9996641", "RC_Z9999428" (Knightsbridge, London; major town centre - include Harrods)
 mergers[[29]] <- c("8b194ad16d9afff", "8b194ad16cb4fff", "8b194ad16d9bfff", "8b194ad16cb0fff", 
   "8b194ad16cb5fff", "8b194ad16ca6fff", "8b194ad16cb1fff", "8b194ad16ca2fff", "8b194ad16ca0fff")
 
-#    "RC_Z9995678", "RC_Z9994514" (Fratton Road; Fratton; Portsmouth (South East; England) 
 mergers[[30]] <- c("8b1959aa0d94fff", "8b1959aa0db3fff", "8b1959aa0db1fff")
 
-#    "RC_Z9992627", "RC_Z9992795", "RC_Z9992306", "RC_Z9995119", "RC_Z9995616" (North Wales)
 mergers[[31]] <- c("8b19512b00b3fff", "8b19512b00b0fff", "8b19512b00b6fff", "8b19512b0569fff", "8b19512b00b4fff", 
   "8b19512b019bfff", "8b19512b0198fff", "8b19512b019dfff")
 
-#    "RC_Z9991559", "RC_Z9992564" (South East - Palmerston Road)
 mergers[[32]] <- c("8b1959aa2a01fff", "8b1959aa2a2afff", "8b1959aa2a0cfff")
 
-
-# MERGE: Scotland: 
-#    "RC_SC_1642", "RC_SC_1643" (Scotland)
 mergers[[33]] <- c("8b1972761089fff", "8b19727610d4fff")
 
-#    "RC_SC_1656", "RC_SC_1647" (Scotland)
 mergers[[34]] <- c("8b197276174afff", "8b1972761748fff")
 
-#    "RC_SC_1712", "RC_SC_1320" (Old Town Retail Centres in Edinburgh)
 mergers[[35]] <- c("8b1972765384fff", "8b1972765385fff", "8b197276538cfff", "8b19727653aafff", "8b19727653a8fff", 
   "8b19727653a9fff")
 
-
-# MERGE: Add-in: 
 mergers[[36]] <- c("8b1951a8a2c3fff", "8b1951a8a2c0fff", "8b1951a8a2c4fff", "8b1951a8a2e2fff", "8b1951a8a2e4fff", 
   "8b1951a8a2e0fff", "8b1951a8a2e3fff", "8b1951a8a2c5fff", "8b1951a8a2c1fff", "8b1951a8a2ccfff", "8b1951a8a2eafff", 
   "8b1951a8a2eefff", "8b1951a8a2e1fff", "8b1951a8a2e5fff", "8b1951a8a256fff", "8b1951a8a252fff", "8b1951a8a2ecfff", 
